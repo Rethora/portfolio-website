@@ -1,0 +1,43 @@
+---
+title: Rocket League Twitch Bot
+description: A Twitch chat bot that sends messages from Rocket League Events
+date: "2023-05-27"
+published: true
+repository: Rethora/RL-Twitch-Bot
+---
+
+## About
+
+These days, I find great enjoyment in playing [Rocket League](https://www.rocketleague.com/). While I'm not a regular streamer, occasionally, I initiate a Twitch stream for friends who may not be actively playing but are hanging out. Observing the relatively quiet chat, we decided to inject some liveliness by introducing a Twitch chat bot. True to our idea, I implemented and deployed the bot, transforming the chat into a more engaging and entertaining space.
+
+## Features
+
+### Compliments
+
+Elevate the excitement levels with personalized cheers whenever you score a goal.
+
+[![Compliment Video Demo](https://github.com/Rethora/RL-Twitch-Bot/blob/main/assets/compliment-ezgif.com-video-to-gif-converter.gif?raw=true)](https://github.com/Rethora/RL-Twitch-Bot/blob/main/assets/compliment-ezgif.com-video-to-gif-converter.gif?raw=true)
+
+### Roasts
+
+Deliver light-hearted roasts whenever an opponent scores against you, adding a humorous twist to the gameplay experience.
+
+[![Roast Video Demo](https://github.com/Rethora/RL-Twitch-Bot/blob/main/assets/roast-ezgif.com-video-to-gif-converter.gif?raw=true)](https://github.com/Rethora/RL-Twitch-Bot/blob/main/assets/roast-ezgif.com-video-to-gif-converter.gif?raw=true)
+
+## How It Works
+
+- Selenium opens a browser session to watch the stream
+- Tesseract extracts the "USER_NAME Scored!" text from the stream
+- Fuzzywuzzy compares the extracted text to the configured usernames (your username and/or your teammate's name) to check if it's a match
+- Twitch bot sends a random unused message from the provided text file depending on the configured settings
+
+## Technologies
+
+- Docker
+- Eclipse
+- Fuzzywuzzy
+- Java
+- Maven
+- Selenium
+- Tesseract
+- Twitch4j
