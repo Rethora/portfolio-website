@@ -49,6 +49,157 @@ const social = [
   },
 ];
 
+const techStack = [
+  {
+    name: 'AWS',
+    icon: 'aws',
+  },
+  {
+    name: 'Azure',
+    icon: 'azure',
+  },
+  {
+    name: 'Bootstrap',
+    icon: 'bootstrap',
+  },
+  {
+    name: 'C#',
+    icon: 'csharp',
+  },
+  {
+    name: 'CSS',
+    icon: 'css',
+  },
+  {
+    name: 'D3',
+    icon: 'd3',
+  },
+  {
+    name: 'Django',
+    icon: 'django',
+  },
+  {
+    name: 'Docker',
+    icon: 'docker',
+  },
+  {
+    name: 'Eclipse',
+    icon: 'eclipse',
+  },
+  {
+    name: 'Electron',
+    icon: 'electron',
+  },
+  {
+    name: 'Express',
+    icon: 'express'
+  },
+  {
+    name: 'Golang',
+    icon: 'golang',
+  },
+  {
+    name: 'HTML',
+    icon: 'html',
+  },
+  {
+    name: 'I18n',
+    icon: 'i18next',
+  },
+  {
+    name: 'Java',
+    icon: 'java',
+  },
+  {
+    name: 'JavaScript',
+    icon: 'javascript',
+  },
+  {
+    name: 'Maven',
+    icon: 'maven',
+  },
+  {
+    name: 'MongoDB',
+    icon: 'mongodb',
+  },
+  {
+    name: 'Next.js',
+    icon: 'next',
+  },
+  {
+    name: 'Node.js',
+    icon: 'node',
+  },
+  {
+    name: 'NPM',
+    icon: 'npm',
+  },
+  {
+    name: 'PostgreSQL',
+    icon: 'postgresql',
+  },
+  {
+    name: 'Python',
+    icon: 'python',
+  },
+  {
+    name: 'Ruby on Rails',
+    icon: 'rails',
+  },
+  {
+    name: 'React',
+    icon: 'react',
+  },
+  {
+    name: 'Redux',
+    icon: 'redux',
+  },
+  {
+    name: 'Ruby',
+    icon: 'ruby',
+  },
+  {
+    name: 'Selenium',
+    icon: 'selenium',
+  },
+  {
+    name: 'Spigot',
+    icon: 'spigot',
+  },
+  {
+    name: 'TailwindCSS',
+    icon: 'tailwind',
+  },
+  {
+    name: 'Twitch4J',
+    icon: 'twitch',
+  },
+  {
+    name: 'TypeScript',
+    icon: 'typescript',
+  },
+  {
+    name: 'Unity',
+    icon: 'unity',
+  },
+  {
+    name: 'Visual Studio',
+    icon: 'visualstudio',
+  },
+  {
+    name: 'Vite',
+    icon: 'vite',
+  },
+  {
+    name: 'WebGL',
+    icon: 'webgl',
+  },
+  {
+    name: 'Webpack',
+    icon: 'webpack',
+  },
+];
+
 const home = {
   path: "/",
   image: "/images/og/home.jpg",
@@ -279,4 +430,16 @@ const gallery = {
   ],
 };
 
-export { person, social, newsletter, home, about, blog, work, personal, contributions, gallery };
+export {
+  person,
+  social,
+  techStack,
+  newsletter,
+  home,
+  about,
+  blog,
+  work,
+  personal,
+  contributions,
+  gallery,
+};

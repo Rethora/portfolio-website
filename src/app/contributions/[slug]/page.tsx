@@ -15,6 +15,7 @@ import { baseURL, about, person, contributions } from "@/resources";
 import { formatDate } from "@/utils/formatDate";
 import { ScrollToHash, CustomMDX } from "@/components";
 import { Metadata } from "next";
+import TechStack from "@/components/TechStack";
 
 export async function generateStaticParams(): Promise<{ slug: string }[]> {
   const posts = getPosts(["src", "app", "contributions", "projects"]);
@@ -113,7 +114,7 @@ export default async function Contribution({
           src={post.metadata.images[0]}
         />
       )}
-      <Column style={{ margin: "auto" }} as="article" maxWidth="xs">
+      <Column style={{ margin: "auto" }} as="article" maxWidth="m">
         <Flex gap="12" marginBottom="24" vertical="center">
           {post.metadata.team && (
             <AvatarGroup reverse avatars={avatars} size="m" />
@@ -124,6 +125,7 @@ export default async function Contribution({
         </Flex>
         <CustomMDX source={post.content} />
       </Column>
+      <TechStack technologies={post.metadata.technologies || []} />
       <ScrollToHash />
     </Column>
   );

@@ -1,6 +1,7 @@
 import { getPosts } from "@/utils/utils";
 import { Column } from "@once-ui-system/core";
 import { ProjectCard } from "@/components";
+import { sortProjects } from "@/utils/projects";
 
 interface ProjectsProps {
   range?: [number, number?];
@@ -9,11 +10,7 @@ interface ProjectsProps {
 export function Projects({ range }: ProjectsProps) {
   let allProjects = getPosts(["src", "app", "work", "projects"]);
 
-  const sortedProjects = allProjects.sort((a, b) => {
-    return (
-      new Date(b.metadata.date).getTime() - new Date(a.metadata.date).getTime()
-    );
-  });
+  const sortedProjects = sortProjects(allProjects);
 
   const displayedProjects = range
     ? sortedProjects.slice(range[0] - 1, range[1] ?? sortedProjects.length)

@@ -1,6 +1,7 @@
 import { getPosts } from "@/utils/utils";
 import { Column } from "@once-ui-system/core";
 import { ProjectCard } from "../ProjectCard";
+import { sortProjects } from "@/utils/projects";
 
 interface PersonalProps {
   range?: [number, number?];
@@ -9,11 +10,7 @@ interface PersonalProps {
 export function Projects({ range }: PersonalProps) {
   let allPersonal = getPosts(["src", "app", "personal", "projects"]);
 
-  const sortedPersonal = allPersonal.sort((a, b) => {
-    return (
-      new Date(b.metadata.date).getTime() - new Date(a.metadata.date).getTime()
-    );
-  });
+  const sortedPersonal = sortProjects(allPersonal);
 
   const displayedPersonal = range
     ? sortedPersonal.slice(range[0] - 1, range[1] ?? sortedPersonal.length)

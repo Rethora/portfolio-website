@@ -15,6 +15,7 @@ import { baseURL, about, person, work } from "@/resources";
 import { formatDate } from "@/utils/formatDate";
 import { ScrollToHash, CustomMDX } from "@/components";
 import { Metadata } from "next";
+import TechStack from "@/components/TechStack";
 
 export async function generateStaticParams(): Promise<{ slug: string }[]> {
   const posts = getPosts(["src", "app", "work", "projects"]);
@@ -71,9 +72,6 @@ export default async function Project({
       src: person.avatar,
     })) || [];
 
-  console.log("post", post);
-  console.log("slugPath", slugPath);
-
   return (
     <Column as="section" maxWidth="m" horizontal="center" gap="l">
       <Schema
@@ -116,17 +114,24 @@ export default async function Project({
           src={post.metadata.images[0]}
         />
       )}
-      <Column style={{ margin: "auto" }} as="article" maxWidth="xs">
+      <Column style={{ margin: "auto" }} as="article" maxWidth="m">
         <Flex gap="12" marginBottom="24" vertical="center">
           {post.metadata.team && (
             <AvatarGroup reverse avatars={avatars} size="m" />
           )}
           <Text variant="body-default-s" onBackground="neutral-weak">
-            {post.metadata.date && formatDate(post.metadata.date)}
+            {post.metadata.dateFrom && !post.metadata.dateTo
+              ? `${formatDate(post.metadata.dateFrom)} - Present`
+              : post.metadata.dateFrom && post.metadata.dateTo
+              ? `${formatDate(post.metadata.dateFrom)} - ${formatDate(
+                  post.metadata.dateTo
+                )}`
+              : post.metadata.date && formatDate(post.metadata.date)}
           </Text>
         </Flex>
         <CustomMDX source={post.content} />
       </Column>
+      <TechStack technologies={post.metadata.technologies || []} />
       <ScrollToHash />
     </Column>
   );

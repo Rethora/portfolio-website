@@ -15,10 +15,10 @@ import { baseURL, about, person, personal } from "@/resources";
 import { formatDate } from "@/utils/formatDate";
 import { ScrollToHash, CustomMDX } from "@/components";
 import { Metadata } from "next";
+import TechStack from "@/components/TechStack";
 
 export async function generateStaticParams(): Promise<{ slug: string }[]> {
   const posts = getPosts(["src", "app", "personal", "projects"]);
-  console.log("posts from static params", posts);
   return posts.map((post) => ({
     slug: post.slug,
   }));
@@ -35,10 +35,6 @@ export async function generateMetadata({
     : routeParams.slug || "";
 
   const posts = getPosts(["src", "app", "personal", "projects"]);
-  console.log(
-    "Available slugs:",
-    posts.map((p) => p.slug)
-  );
   let post = posts.find((post) => post.slug === slugPath);
 
   if (!post) return {};
@@ -65,10 +61,6 @@ export default async function Project({
       : routeParams.slug || "";
 
     let posts = getPosts(["src", "app", "personal", "projects"]);
-    console.log(
-      "Available slugs:",
-      posts.map((p) => p.slug)
-    );
     let post = posts.find((post) => post.slug === slugPath);
 
     if (!post) {
@@ -79,9 +71,6 @@ export default async function Project({
       post.metadata.team?.map((person) => ({
         src: person.avatar,
       })) || [];
-
-    console.log("post", post);
-    console.log("slugPath", slugPath);
 
     return (
       <Column as="section" maxWidth="m" horizontal="center" gap="l">
@@ -125,7 +114,7 @@ export default async function Project({
             src={post.metadata.images[0]}
           />
         )}
-        <Column style={{ margin: "auto" }} as="article" maxWidth="xs">
+        <Column style={{ margin: "auto" }} as="article" maxWidth="m">
           <Flex gap="12" marginBottom="24" vertical="center">
             {post.metadata.team && (
               <AvatarGroup reverse avatars={avatars} size="m" />
@@ -136,6 +125,7 @@ export default async function Project({
           </Flex>
           <CustomMDX source={post.content} />
         </Column>
+        <TechStack technologies={post.metadata.technologies || []} />
         <ScrollToHash />
       </Column>
     );

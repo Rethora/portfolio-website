@@ -1,6 +1,7 @@
 import fs from "fs";
 import path from "path";
 import matter from "gray-matter";
+import { techStack } from "@/resources/content";
 
 type Team = {
   name: string;
@@ -9,9 +10,11 @@ type Team = {
   linkedIn: string;
 };
 
-type Metadata = {
+export type Metadata = {
   title: string;
   date: string;
+  dateFrom?: string;
+  dateTo?: string;
   description: string;
   image?: string;
   images: string[];
@@ -19,7 +22,7 @@ type Metadata = {
   team: Team[];
   url?: string;
   repository?: string;
-  techStack?: string[];
+  technologies?: string[];
 };
 
 import { notFound } from "next/navigation";
@@ -43,6 +46,8 @@ function readMDXFile(filePath: string) {
   const metadata: Metadata = {
     title: data.title || "",
     date: data.date,
+    dateFrom: data.dateFrom || "",
+    dateTo: data.dateTo || "",
     description: data.description || "",
     image: data.image || "",
     images: data.images || [],
@@ -50,7 +55,7 @@ function readMDXFile(filePath: string) {
     team: data.team || [],
     url: data.url || "",
     repository: data.repository || "",
-    techStack: data.techStack || [],
+    technologies: data.technologies || [],
   };
 
   return { metadata, content };
@@ -73,4 +78,8 @@ function getMDXData(dir: string) {
 export function getPosts(customPath = ["", "", "", ""]) {
   const postsDir = path.join(process.cwd(), ...customPath);
   return getMDXData(postsDir);
+}
+
+export function getTechStack(technologies: string[]) {
+  return techStack.filter((tech) => technologies.includes(tech.icon));
 }

@@ -13,6 +13,18 @@ const nextConfig = {
     compiler: "modern",
     silenceDeprecations: ["legacy-js-api"],
   },
+  images: {
+    remotePatterns: [
+      {
+        protocol: "https",
+        hostname: "github.com",
+      },
+      {
+        protocol: "https",
+        hostname: "www.usememos.com",
+      },
+    ],
+  },
 };
 
 export default withMDX(nextConfig);

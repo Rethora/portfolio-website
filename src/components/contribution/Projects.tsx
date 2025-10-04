@@ -1,6 +1,7 @@
 import { getPosts } from "@/utils/utils";
 import { Column } from "@once-ui-system/core";
 import { ProjectCard } from "../ProjectCard";
+import { sortProjects } from "@/utils/projects";
 
 interface ContributionsProps {
   range?: [number, number?];
@@ -9,11 +10,7 @@ interface ContributionsProps {
 export function Projects({ range }: ContributionsProps) {
   let allContributions = getPosts(["src", "app", "contributions", "projects"]);
 
-  const sortedContributions = allContributions.sort((a, b) => {
-    return (
-      new Date(b.metadata.date).getTime() - new Date(a.metadata.date).getTime()
-    );
-  });
+  const sortedContributions = sortProjects(allContributions);
 
   const displayedContributions = range
     ? sortedContributions.slice(
