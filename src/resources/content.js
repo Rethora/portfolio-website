@@ -18,7 +18,7 @@ const person = {
 
 const newsletter = {
   display: false,
-  title: <>Subscribe to {person.firstName}'s Newsletter</>,
+  title: <>Subscribe to {person.firstName}&apos;s Newsletter</>,
   description: (
     <>
       I occasionally write about design, technology, and share thoughts on the intersection of
@@ -212,7 +212,7 @@ const home = {
   },
   subline: (
     <>
-      I'm Dane, a {person.role} at <Link href="https://evt.ai" target="_blank" rel="noopener noreferrer">Educational Vision Technologies</Link>, where I design and build educational software aimed at improving the clarity and retention of lecture content.
+      I&apos;m Dane, a {person.role} at <Link href="https://evt.ai" target="_blank" rel="noopener noreferrer">Educational Vision Technologies</Link>, where I design and build educational software aimed at improving the clarity and retention of lecture content.
     </>
   ),
 };
@@ -238,7 +238,7 @@ const about = {
     title: "Introduction",
     description: (
       <>
-        Hi, I'm Dane! I'm a {person.role} with over {new Date().getFullYear() - 2020} years of experience, passionate about building efficient, reliable, and user-focused software from concept to deployment and beyond.
+        Hi, I&apos;m Dane! I&apos;m a {person.role} with over {new Date().getFullYear() - 2020} years of experience, passionate about building efficient, reliable, and user-focused software from concept to deployment and beyond.
       </>
     ),
   },

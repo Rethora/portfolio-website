@@ -1,8 +1,8 @@
-# **Magic Portfolio by Once UI**
+# **Dane Roelofs' Portfolio Website**
 
-View the [demo here](https://demo.magic-portfolio.com).
+[Live Link](https://portfolio-website-pi-nine-58.vercel.app/)
 
-![Magic Portfolio](https://demo.magic-portfolio.com/images/og/home.jpg)
+Built with [Magic Portfolio](https://demo.magic-portfolio.com/images/og/home.jpg)
 
 
 # **Getting started**
