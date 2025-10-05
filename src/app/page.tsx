@@ -13,12 +13,11 @@ import {
   Meta,
   Schema,
 } from "@once-ui-system/core";
-import { home, about, person, newsletter, baseURL, routes } from "@/resources";
+import { home, about, person, newsletter, baseURL } from "@/resources";
 import { Mailchimp } from "@/components";
 import { Projects as WorkProjects } from "@/components/work/Projects";
 import { Projects as PersonalProjects } from "@/components/personal/Projects";
 import { Projects as ContributionsProjects } from "@/components/contribution/Projects";
-import { Posts } from "@/components/blog/Posts";
 
 export default function Home() {
   return (
@@ -123,19 +122,6 @@ export default function Home() {
       <RevealFx translateY="16" delay={0.6}>
         <ContributionsProjects range={[1, 1]} />
       </RevealFx>
-      {routes["/blog"] && (
-        <Flex fillWidth gap="24" mobileDirection="column">
-          <Flex flex={1} paddingLeft="l" paddingTop="24">
-            <Heading as="h2" variant="display-strong-xs" wrap="balance">
-              Latest from the blog
-            </Heading>
-          </Flex>
-          <Flex flex={3} paddingX="20">
-            <Posts range={[1, 2]} columns="2" />
-          </Flex>
-        </Flex>
-      )}
-      <WorkProjects range={[2]} />
       {newsletter.display && <Mailchimp newsletter={newsletter} />}
     </Column>
   );

@@ -1,4 +1,4 @@
-import { Logo } from "@once-ui-system/core";
+import Link from "next/link";
 
 const person = {
   firstName: "Dane",
@@ -6,15 +6,18 @@ const person = {
   get name() {
     return `${this.firstName} ${this.lastName}`;
   },
-  role: "Software Engineer",
-  avatar: "/images/avatar.jpg",
-  email: "example@gmail.com",
+  role: "Full Stack Software Developer",
+  avatar: "/images/avatar.jpeg",
+  email: "roelofs.l.dane@gmail.com",
   location: "America/Los_Angeles", // Expecting the IANA time zone identifier, e.g., 'Europe/Vienna'
   languages: ["English"], // optional: Leave the array empty if you don't want to display languages
+  city: "San Diego",
+  state: "California",
+  country: "US",
 };
 
 const newsletter = {
-  display: true,
+  display: false,
   title: <>Subscribe to {person.firstName}'s Newsletter</>,
   description: (
     <>
@@ -201,16 +204,15 @@ const home = {
   label: "Home",
   title: `${person.name}'s Portfolio`,
   description: `Portfolio website showcasing my work as a ${person.role}`,
-  headline: <>Building bridges between design and code</>,
+  headline: <>Engineering Solutions Through Resilience and Code</>,
   featured: {
-    display: true,
-    title: <>Recent project: <strong className="ml-4">Once UI</strong></>,
+    display: false,
+    title: <>Recent project: <strong className="ml-4">Educational Vision Technologies</strong></>,
     href: "/work/building-once-ui-a-customizable-design-system",
   },
   subline: (
     <>
-      I'm Selene, a design engineer at <Logo icon="/trademarks/wordmark-dark.svg" style={{ display: "inline-flex", top: "0.25em", marginLeft: "-0.25em" }}/>, where I craft intuitive
-      <br /> user experiences. After hours, I build my own projects.
+      I'm Dane, a {person.role} at <Link href="https://evt.ai" target="_blank" rel="noopener noreferrer">Educational Vision Technologies</Link>, where I design and build educational software aimed at improving the clarity and retention of lecture content.
     </>
   ),
 };
@@ -228,7 +230,7 @@ const about = {
     display: true,
   },
   calendar: {
-    display: true,
+    display: false,
     link: "https://cal.com",
   },
   intro: {
@@ -236,7 +238,7 @@ const about = {
     title: "Introduction",
     description: (
       <>
-        TODO: Add introduction
+        Hi, I'm Dane! I'm a {person.role} with over {new Date().getFullYear() - 2020} years of experience, passionate about building efficient, reliable, and user-focused software from concept to deployment and beyond.
       </>
     ),
   },
@@ -246,38 +248,64 @@ const about = {
     experiences: [
       {
         company: "Educational Vision Technologies",
-        timeframe: "2020 - Present",
-        role: "Software Engineer",
+        timeframe: "2021 - Present",
+        role: "Lead Full Stack Software Developer",
         achievements: [
           <>
-            TODO: Add achievements
+            Design, document and develop secure, scalable APIs used by multiple services including cloud platforms and front end web apps, with complex user authentication and role-based access control.
           </>,
+          <>
+            Participate in daily team meetings to plan, implement, and maintain software features as well as tasks relating to DevOps and infrastructure updates.
+          </>,
+          <>
+            Serve as the lead software developer, overseeing code quality, conducting code reviews, guiding architecture decisions, and mentoring junior developers and interns.
+          </>,
+          <>
+            Responsible for ensuring all platform features comply with WCAG accessibility standards, including the implementation of custom solutions to support users with disabilities.
+          </>,
+          <>
+            Implement integrations with third-party platforms, such as Canvas LMS, adhering to strict data handling, authentication, and technical standards.          
+          </>
         ],
         images: [
           // optional: leave the array empty if you don't want to display images
           {
-            src: "/images/projects/project-01/cover-01.jpg",
-            alt: "Once UI Project",
+            src: "https://evt.ai/wp-content/uploads/2021/11/evt-bold-logo-white-228x122-1.png",
+            alt: "EVT Logo",
             width: 16,
             height: 9,
           },
         ],
       },
       {
-        company: "Creativ3",
-        timeframe: "2018 - 2022",
-        role: "Lead Designer",
+        company: "LEARN Academy",
+        timeframe: "2021 - 2022",
+        role: "Full Stack Software Teacher Assistant and Mentor",
         achievements: [
           <>
-            Developed a design system that unified the brand across multiple platforms, improving
-            design consistency by 40%.
+            Provided career mentorship, including portfolio reviews, mock technical interviews, and resume feedback.
           </>,
           <>
-            Led a cross-functional team to launch a new product line, contributing to a 15% increase
-            in overall company revenue.
+            Encouraged a collaborative and inclusive learning environment, fostering peer-to-peer learning and growth.
+          </>,
+          <>
+            Supported students in building and deploying capstone projects, ensuring code quality and functionality.
+          </>,
+          <>
+            Helped students adopt best practices in version control (Git/GitHub), clean coding, and debugging techniques.
+          </>,
+          <>
+            Assisted lead instructors during live lectures by managing the chat, clarifying complex topics, and offering real-time troubleshooting.
           </>,
         ],
-        images: [],
+        images: [
+          {
+            src: "/images/projects/learn/learn-logo.jpeg",
+            alt: "Learn Logo",
+            width: 16,
+            height: 9,
+          }
+        ],
       },
     ],
   },
@@ -286,17 +314,21 @@ const about = {
     title: "Studies",
     institutions: [
       {
-        name: "University of Jakarta",
-        description: <>Studied software engineering.</>,
+        name: "SDCCD",
+        description: <>Studied computer science.</>,
       },
       {
-        name: "Build the Future",
-        description: <>Studied online marketing and personal branding.</>,
+        name: "Duke University",
+        description: <>Multiple course certificates in Java software engineering and software principles.</>,
+      },
+      {
+        name: "LEARN Academy",
+        description: <>Completed 500+ hours of direct coding experience in an intensive development bootcamp.</>,
       },
     ],
   },
   technical: {
-    display: true, // set to false to hide this section
+    display: false, // set to false to hide this section
     title: "Technical skills",
     skills: [
       {

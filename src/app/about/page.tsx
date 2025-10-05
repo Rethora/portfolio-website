@@ -12,7 +12,7 @@ import {
   Meta,
   Schema
 } from "@once-ui-system/core";
-import { baseURL, about, person, social } from "@/resources";
+import { baseURL, about, person, social, display } from "@/resources";
 import TableOfContents from "@/components/about/TableOfContents";
 import styles from "@/components/about/about.module.scss";
 import React from "react";
@@ -91,8 +91,12 @@ export default function About() {
           >
             <Avatar src={person.avatar} size="xl" />
             <Flex gap="8" vertical="center">
-              <Icon onBackground="accent-weak" name="globe" />
-              {person.location}
+              {display.location && (
+                <Flex gap="8" vertical="center">
+                  <Icon onBackground="accent-weak" name="globe" />
+                  {person.city}, {person.state}, {person.country}
+                </Flex>
+              )}
             </Flex>
             {person.languages.length > 0 && (
               <Flex wrap gap="8">

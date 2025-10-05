@@ -3,7 +3,18 @@ title: Rocket League Twitch Bot
 description: A Twitch chat bot that sends messages from Rocket League Events
 date: "2023-05-27"
 published: true
-repository: Rethora/RL-Twitch-Bot
+repository: https://github.com/Rethora/RL-Twitch-Bot
+images:
+  - "/images/projects/rl-twitch-bot/rl-twitch-chatbot.mp4"
+technologies:
+  - "docker"
+  - "eclipse"
+  - "fuzzywuzzy"
+  - "java"
+  - "maven"
+  - "selenium"
+  - "tesseract"
+  - "twitch4j"
 ---
 
 ## About
@@ -30,14 +41,3 @@ Deliver light-hearted roasts whenever an opponent scores against you, adding a h
 - Tesseract extracts the "USER_NAME Scored!" text from the stream
 - Fuzzywuzzy compares the extracted text to the configured usernames (your username and/or your teammate's name) to check if it's a match
 - Twitch bot sends a random unused message from the provided text file depending on the configured settings
-
-## Technologies
-
-- Docker
-- Eclipse
-- Fuzzywuzzy
-- Java
-- Maven
-- Selenium
-- Tesseract
-- Twitch4j
