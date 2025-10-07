@@ -314,7 +314,7 @@ const about = {
     title: "Studies",
     institutions: [
       {
-        name: "SDCCD",
+        name: "Mesa College",
         description: <>Studied computer science.</>,
       },
       {
